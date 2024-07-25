@@ -11,7 +11,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const nav=useNavigate()
 
-  const handleSignup = async (e) => {
+  const Signup = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -45,7 +45,7 @@ const Signup = () => {
 
   return (
     <main className='w-[100vw] h-[100vh] flex justify-center'>
-    <form onSubmit={handleSignup} className='flex flex-col items-center justify-evenly w-[50%] h-[50%]' >
+    <form onSubmit={Signup} className='flex flex-col items-center justify-evenly w-[50%] h-[50%]' >
     <div className="flex w-[80%] justify-start items-start">
           <button className="mr-[130px] text-xl" onClick={()=>nav('/')}>Go Back</button>
       <h2 className='text-5xl font-bold '>Sign Up</h2>

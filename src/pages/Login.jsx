@@ -12,7 +12,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
 
-  const handleLogin = async (e) => {
+  const Login = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <main className="w-[100vw] h-[100vh] flex justify-center">
       <form
-        onSubmit={handleLogin}
+        onSubmit={Login}
         className="flex flex-col items-center justify-evenly w-[50%] h-[50%]"
       >
         <div className="flex w-[80%] justify-start items-start">
