@@ -79,11 +79,13 @@
 // export default PayPalButton;
 import { useState, useEffect } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useNavigate } from "react-router-dom";
 
 const PayWithPayPal = ({setShow, show}) => {
    
     const [success, setSuccess] = useState(false);
     const [orderID, setOrderID] = useState(null); // Change default value to null
+    const nav=useNavigate()
 
     // Creates a PayPal order
     const createOrder = (data, actions) => {
@@ -114,7 +116,8 @@ const PayWithPayPal = ({setShow, show}) => {
     // Use useEffect with orderID as a dependency
     useEffect(() => {
         if (success && orderID) {
-            alert("Payment successful!!");
+            // alert("Payment successful!!");
+            nav('/success')
             console.log('Order successful. Your order id is--', orderID);
         }
     }, [success, orderID]); // Add orderID to dependencies
@@ -127,11 +130,16 @@ const PayWithPayPal = ({setShow, show}) => {
                 </div>
                 <br />
                 {show && !success ? (
+                    <div>
+                        {/* <p className='font-bold'>Sample Account:</p> */}
+                        {/* <p className='font-bold'>Email: edtechadmin@gmail.com</p> */}
+                        {/* <p className='font-bold'>Password:</p> */}
                     <PayPalButtons
                         style={{ layout: "vertical" }}
                         createOrder={createOrder}
                         onApprove={onApprove}
-                    />
+                        />
+                        </div>
                 ) : null}
             </div>
         </PayPalScriptProvider>

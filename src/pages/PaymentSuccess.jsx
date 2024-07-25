@@ -2,7 +2,7 @@ import React from 'react'
 
 const PaymentSuccess = () => {
   return (
-    <h1>Payment Successfull..🎉🎉🎉</h1>
+    <h1 className='text-4xl'>Payment Successfull..🎉🎉🎉</h1>
   )
 }
 
