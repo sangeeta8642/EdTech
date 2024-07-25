@@ -17,6 +17,7 @@ function App() {
           <Route path="/cancel" element={<PaymentCanceled/>}/>
         </Routes>
       </Router>
+
       
     </>
   );

@@ -32,6 +32,7 @@ Stripe:
 Email: edtechadmin@gmail.com
 Card details: 4242 4242 4242 4242, Expiry: 07/25, CVC: 123
 Cardholder name: edtechadmin
+Country : India
 
 Thank you for considering my project. 
 
