@@ -53,10 +53,10 @@ const Login = () => {
     <main className="w-[100vw] h-[100vh] flex justify-center">
       <form
         onSubmit={Login}
-        className="flex flex-col items-center justify-evenly w-[50%] h-[50%]"
+        className="flex flex-col items-center justify-evenly w-full lg:w-[50%] h-[50%]"
       >
         <div className="flex w-[80%] justify-start items-start">
-          <button className="mr-[100px] text-xl" onClick={()=>nav('/')}>Go Back</button>
+          <button className="lg:mr-[160px] md:mr-[160px] sm:mr-[160px] mr-[100px] text-xl" onClick={()=>nav('/')}>Go Back</button>
           <h2 className="text-5xl font-bold ">Login</h2>
         </div>
         <input

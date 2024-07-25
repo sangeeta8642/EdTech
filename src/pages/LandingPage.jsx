@@ -8,12 +8,12 @@ function LandingPage() {
   const [show, setShow] = useState(false);
 
   return (
-    <main>
+    <main className="sm:mt-[400px] lg:mt-[100px] md:mt-[400px] sm:mb-24 mt-[450px]">
      <Navbar/>
       <div className="container mx-auto p-4 flex justify-center items-center flex-col ">
-        <h1 className="text-7xl font-bold">Welcome to the EdTech Platform</h1>
+        <h1 className="lg:text-7xl lg:text-black lg:bg-none md:text-black md:text-4xl sm:text-black sm:text-4xl text-3xl font-bold">Welcome to the EdTech Platform</h1>
        
-        <div className="mt-8 flex">
+        <div className="mt-8 flex lg:flex-row md:flex-col sm:flex-col-reverse flex-col-reverse">
           <div className="product-img">
             <img
               src={shoe}
