@@ -4,9 +4,6 @@ Welcome to the EdTech platform.
 Overview
 On the EdTech platform, users can sign up or log in, and their data is securely stored in the Google Firebase database. The landing page showcases product images and details, allowing users to purchase products using two payment gateways: PayPal and Stripe.
 
-Duration
-The implementation of this assignment started on July 24, 2024, at 6:48 PM and was completed on July 25, 2024, at 6:16 PM.
-
 Technology Used
 Frontend: React with Vite for better runtime performance.
 Styling: Tailwind CSS framework.
