@@ -20,6 +20,8 @@ Active Routes
 "/signup" - The signup page
 "/success" - The page users are redirected to upon successful payment
 "/cancel" - The page users are redirected to if there is an error with payment
+
+
 Sample Account for Payment
 PayPal:
 
