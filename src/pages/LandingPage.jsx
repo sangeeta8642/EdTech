@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PayWithPayPal from "../Paymentmethods/PayWithPayPal";
-// import StripeProvider from "../components/StripeContext";
 import PayWithStripe from "../Paymentmethods/PayWithStripe";
 import shoe from "../assets/shoe.png";
 import Navbar from "../components/Navbar";
@@ -13,13 +12,10 @@ function LandingPage() {
      <Navbar/>
       <div className="container mx-auto p-4 flex justify-center items-center flex-col ">
         <h1 className="text-7xl font-bold">Welcome to the EdTech Platform</h1>
-        {/* <p className="mt-4 text-4xl font-semibold"> */}
-        {/* The best place to learn and grow. */}
-        {/* </p> */}
+       
         <div className="mt-8 flex">
           <div className="product-img">
             <img
-              // src="https://cdn.pixabay.com/photo/2021/08/15/06/54/sunflower-6546993_1280.jpg"
               src={shoe}
               alt="Air Nike Pegasus 41 Electric"
               height="420"
@@ -35,13 +31,11 @@ function LandingPage() {
                 meet the next generation of Air{" "}
               </h3>
             </div>
-            {/* <div className="product-price-btn"> */}
             <p className="text-xl text-slate-500 font-bold"> Price : $10</p>
 
             <p className="text-xl text-black font-bold">
               Check Out Product With :
             </p>
-            {/* <br /> */}
             <button
               className="bg-yellow-600 h-14 rounded-full text-white text-2xl italic font-semibold"
               type="button"
@@ -53,12 +47,10 @@ function LandingPage() {
               <PayWithPayPal amount="10.00" setShow={setShow} show={show} />
               <PayWithStripe />
             </div>
-            {/* </div> */}
           </div>
         </div>
 
-        {/* <StripeProvider> */}
-        {/* </StripeProvider> */}
+       
       </div>
     </main>
   );

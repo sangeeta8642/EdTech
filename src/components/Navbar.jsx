@@ -7,7 +7,6 @@ const Navbar = () => {
 
   return (
     <header className="w-[100vw] h-20 mt-[-5px] flex justify-center items-center ">
-        {/* <h2 className="text-5xl font-bold text-green-600">EdTech</h2> */}
         {user ? (
           <nav className="w-[90%] h-full flex justify-end items-center gap-8">
             <a href="/" className="text-2xl font-semibold text-slate-600" onClick={()=>{

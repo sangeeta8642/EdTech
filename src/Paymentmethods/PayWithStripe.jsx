@@ -7,11 +7,10 @@ const PayWithStripe = () => {
   const handleClick = async () => {
     const stripe = await stripePromise;
     
-    // Create a Checkout Session
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: 'price_1PgMNo2Ny1hH9rMO1lEwES2Z', // Replace with your price ID
+          price: 'price_1PgMNo2Ny1hH9rMO1lEwES2Z', 
           quantity: 1,
         },
       ],
