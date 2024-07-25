@@ -1,8 +1,39 @@
-# React + Vite
+EdTech
+Welcome to the EdTech platform.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Overview
+On the EdTech platform, users can sign up or log in, and their data is securely stored in the Google Firebase database. The landing page showcases product images and details, allowing users to purchase products using two payment gateways: PayPal and Stripe.
 
-Currently, two official plugins are available:
+Duration
+The implementation of this assignment started on July 24, 2024, at 6:48 PM and was completed on July 25, 2024, at 6:16 PM.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technology Used
+Frontend: React with Vite for better runtime performance.
+Styling: Tailwind CSS framework.
+Backend: Google Firebase for user authentication.
+
+Note: I could not integrate the payment gateways with Firebase due to Google's requirement for a paid account.
+
+Active Routes
+"/" - The landing/home page
+"/login" - The login page
+"/signup" - The signup page
+"/success" - The page users are redirected to upon successful payment
+"/cancel" - The page users are redirected to if there is an error with payment
+Sample Account for Payment
+PayPal:
+
+Email: sb-yxhlj31510320@personal.example.com
+Password: qvL=T-S6
+Stripe:
+
+Email: edtechadmin@gmail.com
+Card details: 4242 4242 4242 4242, Expiry: 07/25, CVC: 123
+Cardholder name: edtechadmin
+
+Thank you for considering my project. 
+
+
+
+
+
