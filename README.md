@@ -36,6 +36,11 @@ Coupon code : code1
 User will get the discount on the product price by 8%
 
 
+I couldn't proceed with switching to a live business account because the platform requires an upgrade to a professional plan, which involves an additional cost.
+
+and I am requesting you to
+view my assignment with your screen size set to 90% for the best experience. 
+
 
 Thank you for considering my project. 
 
