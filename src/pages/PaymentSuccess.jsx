@@ -1,3 +1,4 @@
+//user redirected to this component when user's payment gets successfull
 import React from 'react'
 
 const PaymentSuccess = () => {

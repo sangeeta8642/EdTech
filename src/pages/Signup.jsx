@@ -1,3 +1,4 @@
+//user signup page
 import { useState } from "react";
 import { auth, db, provider, signInWithPopup } from "../server/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -11,6 +12,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
 
+  //acceoting the user through google
   const GoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, provider);
@@ -27,6 +29,7 @@ const Signup = () => {
     }
   };
 
+  //manually accepting the user
   const Signup = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -126,6 +129,7 @@ const Signup = () => {
           onClick={GoogleSignIn}
           className="mt-4 text-xl text-black p-2 w-[80%] flex justify-center items-center gap-4 border-4 border-black rounded-full"
         >
+          {/*Google Logo */}
           <svg
             stroke="currentColor"
             fill="currentColor"

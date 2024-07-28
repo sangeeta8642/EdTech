@@ -1,7 +1,11 @@
+
+//Component to add the coupon code in the firebase database
 import React, { useState } from 'react';
 import { db } from '../server/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
+
+//funtion to add the coupon code
 const AddCouponCode = () => {
   const [code, setCode] = useState('');
   const [discount, setDiscount] = useState('');
@@ -10,14 +14,13 @@ const AddCouponCode = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Add the coupon details to the Firestore database
+      
       await addDoc(collection(db, 'coupons'), {
-        code: code.toUpperCase(), // Store the coupon code in uppercase
-        discount: parseFloat(discount), // Store the discount as a float
-        expiration: new Date(expiration), // Store the expiration date
+        code: code.toUpperCase(), 
+        discount: parseFloat(discount), 
+        expiration: new Date(expiration), 
       });
       alert('Coupon added successfully');
-      // Clear the input fields after successful submission
       setCode('');
       setDiscount('');
       setExpiration('');
@@ -27,6 +30,7 @@ const AddCouponCode = () => {
   };
 
   return (
+    //form to accept the coupon code
     <div className="p-4 bg-white shadow-md rounded">
       <h2 className="text-xl font-bold mb-4">Add Coupon Code</h2>
       <form onSubmit={handleSubmit} className="space-y-4">

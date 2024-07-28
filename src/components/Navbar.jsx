@@ -1,3 +1,4 @@
+//component of top navigation
 import React from 'react'
 
 const Navbar = () => {

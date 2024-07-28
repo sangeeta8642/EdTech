@@ -1,3 +1,4 @@
+//user redirected to this component when user's payment gets cancelled
 import React from 'react'
 
 const PaymentCanceled = () => {

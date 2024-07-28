@@ -1,12 +1,9 @@
-// src/couponUtils.js
-
+//component to fetch,validate and apply the coupon code
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../server/firebase';
-import { useState } from 'react';
 
-// Function to fetch coupon details from Firestore
+//function to fetch the coupon code from DB
 export const fetchCoupon = async (code) => {
-  // const[applied,seApplied]=useState(false)
   const couponsRef = collection(db, 'coupons');
   const q = query(couponsRef, where('code', '==', code.toUpperCase()));
   const querySnapshot = await getDocs(q);
@@ -18,7 +15,7 @@ export const fetchCoupon = async (code) => {
   }
 };
 
-// Function to validate the coupon
+//function to validate the coupon code
 export const validateCoupon = (coupon) => {
   const now = new Date();
   if (coupon.expiration.toDate() >= now) {
@@ -29,7 +26,7 @@ export const validateCoupon = (coupon) => {
   }
 };
 
-// Function to apply the discount
+//function to apply coupon discount on the product
 export const applyDiscount = (originalAmount, discountPercentage) => {
   return originalAmount - (originalAmount * discountPercentage / 100);
 };
