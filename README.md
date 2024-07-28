@@ -31,6 +31,12 @@ Card details: 4242 4242 4242 4242, Expiry: 07/25, CVC: 123
 Cardholder name: edtechadmin
 Country : India
 
+Coupon code : code1
+
+User will get the discount on the product price by 8%
+
+
+
 Thank you for considering my project. 
 
 
