@@ -3,14 +3,16 @@ import PayWithPayPal from "../Paymentmethods/PayWithPayPal";
 import PayWithStripe from "../Paymentmethods/PayWithStripe";
 import shoe from "../assets/shoe.png";
 import Navbar from "../components/Navbar";
+import Payment from "../components/Payment";
 
 function LandingPage() {
   const [show, setShow] = useState(false);
+  const[payments,setPayments]=useState(false)
 
   return (
-    <main className="sm:mt-[400px] lg:mt-[100px] md:mt-[400px] sm:mb-24 mt-[450px]">
+    <main className="sm:mt-[400px] lg:mt-[100px] md:mt-[400px] sm:mb-24 mt-[450px] flex flex-col justify-center items-center">
      <Navbar/>
-      <div className="container mx-auto p-4 flex justify-center items-center flex-col ">
+      <div className="container mx-auto p-4 flex justify-center items-center flex-col relative">
         <h1 className="lg:text-7xl lg:text-black lg:bg-none md:text-black md:text-4xl sm:text-black sm:text-4xl text-3xl font-bold">Welcome to the EdTech Platform</h1>
        
         <div className="mt-8 flex lg:flex-row md:flex-col sm:flex-col-reverse flex-col-reverse">
@@ -31,27 +33,34 @@ function LandingPage() {
                 meet the next generation of Air{" "}
               </h3>
             </div>
-            <p className="text-xl text-slate-500 font-bold"> Price : $10</p>
+            <p className="text-xl text-slate-500 font-bold"> Price : $20</p>
 
-            <p className="text-xl text-black font-bold">
+            {/* <p className="text-xl text-black font-bold">
               Check Out Product With :
-            </p>
+            </p> */}
             <button
-              className="bg-yellow-600 h-14 rounded-full text-white text-2xl italic font-semibold"
+              className="bg-black h-14 rounded-full text-white text-2xl italic font-semibold hover:bg-white hover:text-black hover:border-2 hover:border-black"
               type="button"
-              onClick={() => setShow(!show)}
+              onClick={() => setPayments(!payments)}
             >
-              Pay pal
+              {/* Pay pal */}
+              Check out
             </button>
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <PayWithPayPal amount="10.00" setShow={setShow} show={show} />
               <PayWithStripe />
-            </div>
+            </div> */}
           </div>
         </div>
 
        
       </div>
+              {
+                payments?
+                <div className="fixed inset-0 bg-black bg-opacity-20 backdrop-blur-md backdrop-brightness-75 flex justify-center items-center z-50">
+          <Payment amount="10.00" setShow={setShow} show={show} setPayments={setPayments} />
+        </div>:null
+              }
     </main>
   );
 }
