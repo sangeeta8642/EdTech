@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import Payment from "../components/Payment";
 
 function LandingPage() {
-  const [show, setShow] = useState(false);
   const [payments, setPayments] = useState(false);
 
   return (
@@ -48,9 +47,6 @@ function LandingPage() {
       {payments ? (
         <div className="fixed inset-0 bg-black bg-opacity-20 backdrop-blur-md backdrop-brightness-75 flex justify-center items-center z-50 overflow-y-scroll">
           <Payment
-            // amount="10.00"
-            // setShow={setShow}
-            // show={show}
             setPayments={setPayments}
           />
         </div>

@@ -1,26 +1,15 @@
 //payment section
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PayWithPayPal from "../Paymentmethods/PayWithPayPal";
 import PayWithStripe from "../Paymentmethods/PayWithStripe";
 import { fetchCoupon, validateCoupon, applyDiscount } from "./couponUtils";
-// import PayPalIntegration from "../Payments/Paypal/PayPalIntegration";
 
-const Payment = ({ setShow, show, setPayments }) => {
+const Payment = ({setPayments }) => {
   const [coupon, setCoupon] = useState(false);
   const [amount, setAmount] = useState(20);
   const [couponCode, setCouponCode] = useState("");
   const [error, setError] = useState("");
   const [isCouponApplied, setIsCouponApplied] = useState(false);
-  const [product, setProduct] = useState("");
-
-  useEffect(() => {
-    // Update the product price ID based on the coupon application state
-    if (isCouponApplied) {
-      setProduct("price_1PhPRN2Ny1hH9rMOyfTKvlCt");
-    } else {
-      setProduct("price_1PhPZV2Ny1hH9rMOKWbGeEr2");
-    }
-  }, [isCouponApplied]);
 
   const handleCouponApply = async () => {
     if (isCouponApplied) {
@@ -35,7 +24,7 @@ const Payment = ({ setShow, show, setPayments }) => {
         validateCoupon(coupon);
         const newAmount = applyDiscount(amount, coupon.discount);
         setAmount(newAmount);
-        setIsCouponApplied(true); // Set flag to true after applying the coupon
+        setIsCouponApplied(true); 
       } else {
         setError("Please enter a valid coupon code.");
       }
@@ -110,17 +99,12 @@ const Payment = ({ setShow, show, setPayments }) => {
       <button
         className="bg-yellow-600 h-14 rounded-full text-white text-2xl italic font-semibold hover:bg-white hover:text-yellow-600 hover:border-2 hover:border-yellow-600"
         type="button"
-        // onClick={() => setShow(!show)}
       >
         <PayWithPayPal amount={amount} />
-        {/* Pay pal */}
       </button>
-      {/* <PayPalIntegration /> */}
       <div>
         <PayWithStripe
           amount={amount}
-          // couple={isCouponApplied}
-          product={product}
         />
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
