@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import PayWithPayPal from "../Paymentmethods/PayWithPayPal";
 import PayWithStripe from "../Paymentmethods/PayWithStripe";
 import { fetchCoupon, validateCoupon, applyDiscount } from "./couponUtils";
+// import PayPalIntegration from "../Payments/Paypal/PayPalIntegration";
 
 const Payment = ({ setShow, show, setPayments }) => {
   const [coupon, setCoupon] = useState(false);
-  const [amount, setAmount] = useState(20); 
+  const [amount, setAmount] = useState(20);
   const [couponCode, setCouponCode] = useState("");
   const [error, setError] = useState("");
   const [isCouponApplied, setIsCouponApplied] = useState(false);
@@ -64,11 +65,11 @@ const Payment = ({ setShow, show, setPayments }) => {
       <p className="text-xl">price : $ {amount}</p>
       {isCouponApplied ? (
         <p className="text-xl text-slate-800 font-light">
-          you got 8% discount using coupon code
+          you got 15% discount using coupon code
         </p>
       ) : (
         <p className="text-xl text-slate-800 font-light">
-          get upto 8% discount using coupon code
+          get upto 15% discount using coupon code
         </p>
       )}
       {coupon ? (
@@ -111,13 +112,14 @@ const Payment = ({ setShow, show, setPayments }) => {
         type="button"
         onClick={() => setShow(!show)}
       >
-        Pay pal
+        <PayWithPayPal amount={amount} />
+        {/* Pay pal */}
       </button>
+      {/* <PayPalIntegration /> */}
       <div>
-        <PayWithPayPal setShow={setShow} show={show} amount={amount} />
         <PayWithStripe
           amount={amount}
-          couple={isCouponApplied}
+          // couple={isCouponApplied}
           product={product}
         />
       </div>
