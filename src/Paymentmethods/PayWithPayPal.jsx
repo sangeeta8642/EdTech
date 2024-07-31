@@ -141,8 +141,8 @@ const PayPalButton = ({amount}) => {
         {
           intent: 'sale',
           redirect_urls: {
-            return_url: 'http://localhost:5173/success',
-            cancel_url: 'http://localhost:5173/cancel',
+            return_url: `${window.location.origin}/success`,
+            cancel_url: `${window.location.origin}/cancel`,
           },
           payer: {
             payment_method: 'paypal',
@@ -225,7 +225,7 @@ const PayPalButton = ({amount}) => {
   }, []);
 
   return (
-    <button onClick={handlePayment}>Pay with PayPal</button>
+    <button onClick={handlePayment} className='italic'>Pay with PayPal</button>
   );
 };
 

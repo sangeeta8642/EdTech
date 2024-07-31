@@ -110,7 +110,7 @@ const Payment = ({ setShow, show, setPayments }) => {
       <button
         className="bg-yellow-600 h-14 rounded-full text-white text-2xl italic font-semibold hover:bg-white hover:text-yellow-600 hover:border-2 hover:border-yellow-600"
         type="button"
-        onClick={() => setShow(!show)}
+        // onClick={() => setShow(!show)}
       >
         <PayWithPayPal amount={amount} />
         {/* Pay pal */}
