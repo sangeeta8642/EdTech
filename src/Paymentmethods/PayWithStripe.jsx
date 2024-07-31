@@ -1,42 +1,36 @@
-// //Pay with Stripe
+//Pay with Stripe
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import axios from 'axios';
 
 const stripePromise = loadStripe('pk_test_51PgA8B2Ny1hH9rMOtpJehsn4t9co11VxL3po9Xli4TRTXO2677L1Edt6LMk2be2Af60Sohz0uzhHgumNBagYC5EO00JzADife5'); // Replace with your publishable key
 
-const PayWithStripe = ({amount}) => {
+const PayWithStripe = ({ amount }) => {
   const handleCheckout = async () => {
     const stripe = await stripePromise;
 
     try {
       // Create a Checkout Session using Stripe's API
-      const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
-        method: 'POST',
+      const response = await axios.post('https://api.stripe.com/v1/checkout/sessions', new URLSearchParams({
+        'payment_method_types[]': 'card',
+        'line_items[0][price_data][currency]': 'usd',
+        'line_items[0][price_data][product_data][name]': 'Test Product',
+        'line_items[0][price_data][unit_amount]': (amount * 100), // Convert amount to cents
+        'line_items[0][quantity]': '1',
+        'mode': 'payment',
+        'success_url': `${window.location.origin}/success`,
+        'cancel_url': `${window.location.origin}/cancel`,
+      }), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `Bearer sk_test_51PgA8B2Ny1hH9rMO2jk2Dj2Kvbb2CPGTUiS4kvZC0vR4Oh9XMZAevIjWv19MFbwcl3JgtUoea4Jg5PAEHCNzuZJO00SgVeMs8w` // Replace with your secret key (INSECURE)
-        },
-        body: new URLSearchParams({
-          'payment_method_types[]': 'card', 
-          'line_items[0][price_data][currency]': 'usd',
-          'line_items[0][price_data][product_data][name]': 'Test Product',
-          'line_items[0][price_data][unit_amount]': (amount * 100),
-          'line_items[0][quantity]': '1',
-          'mode': 'payment',
-          'success_url': `${window.location.origin}/success`,
-          'cancel_url': `${window.location.origin}/cancel`,
-        }),
+        }
       });
 
-      const session = await response.json();
-
-      if (session.error) {
-        console.error('Error creating Checkout Session:', session.error);
-        return;
-      }
+      const { id } = response.data;
 
       // Redirect to Stripe Checkout
-      const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+      const { error } = await stripe.redirectToCheckout({ sessionId: id });
 
       if (error) {
         console.error('Error redirecting to Checkout:', error);
